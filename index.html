@@ -11,101 +11,103 @@
 <link rel="icon" href="https://i.postimg.cc/SKgygjLQ/image-5.jpg" type="image/png">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#0f0f0f;
-  color:#fff;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
 }
-header{
-  background:#000;
-  padding:15px;
-  text-align:center;
-  font-size:22px;
+header {
+  background: #000;
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
 }
-header a{
-  color:#00B2FF;
-  margin-left:10px;
-  text-decoration:none;
-  font-size:16px;
-  display:inline-flex;
-  align-items:center;
+header a {
+  color: #00B2FF;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
 }
-header a img{
-  width:20px;
-  height:20px;
-  margin-right:5px;
+header a img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
-.container{
-  width:95%;
-  max-width:1100px;
-  margin:auto;
-  padding:15px;
+.container {
+  width: 95%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
 }
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
 }
-.card{
-  background:#1c1c1c;
-  border-radius:10px;
-  overflow:hidden;
-  cursor:pointer;
-  text-align:center;
+.card {
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
 }
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
-.card h3{
-  margin:10px 0;
+.card h3 {
+  margin: 10px 0;
 }
-.hidden{display:none;}
-.btn{
-  background:#e50914;
-  color:#fff;
-  border:none;
-  padding:10px 18px;
-  margin:5px;
-  border-radius:5px;
-  cursor:pointer;
+.hidden { display: none; }
+.btn {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-iframe{
-  width:100%;
-  height:420px;
-  border-radius:10px;
+iframe {
+  width: 100%;
+  height: 420px;
+  border-radius: 10px;
 }
-.ad{
-  background:#333;
-  padding:15px;
-  margin:15px 0;
-  border-radius:8px;
-  text-align:center;
+.ad {
+  background: #333;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  text-align: center;
 }
-.video-box{
-  position:relative;
+.video-box {
+  position: relative;
 }
-#overlay{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.85);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:10;
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
-#searchContainer{
-  text-align:center;
-  margin-bottom:15px;
+#searchContainer {
+  text-align: center;
+  margin-bottom: 15px;
 }
-#searchInput{
-  padding:8px;
-  border-radius:5px;
-  border:none;
-  width:60%;
+#searchInput {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  width: 60%;
 }
 </style>
 </head>
@@ -122,6 +124,7 @@ iframe{
 
 <div class="container">
 
+<!-- الصفحة الرئيسية -->
 <div id="home">
 <h2 style="text-align:center">اختر مسلسلك</h2>
 
@@ -133,14 +136,23 @@ iframe{
 <div id="seriesList" class="grid"></div>
 </div>
 
+<!-- صفحة المسلسل -->
 <div id="seriesPage" class="hidden">
 <button class="btn" onclick="goHome()">⬅ الرجوع للرئيسية</button>
 
 <h2 id="seriesTitle"></h2>
 <p id="seriesDesc"></p>
 
-<div class="ad">🔔 مكان إعلان أعلى</div>
+<!-- إعلان أعلى الفيديو -->
+<div class="ad">
+<div id="frame-top" style="width: 300px; margin: auto; height: auto;">
+  <iframe data-aa='2425792' src='//ad.a-ads.com/2425792/?size=300x250'
+          style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display:block; margin:auto;'>
+  </iframe>
+</div>
+</div>
 
+<!-- الفيديو -->
 <div class="video-box">
 <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
 <div id="overlay">
@@ -148,9 +160,25 @@ iframe{
 </div>
 </div>
 
+<!-- إعلان أسفل الفيديو -->
+<div class="ad">
+<div id="frame-bottom" style="width: 300px; margin: auto; height: auto;">
+  <iframe data-aa='2425792' src='//ad.a-ads.com/2425792/?size=300x250'
+          style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display:block; margin:auto;'>
+  </iframe>
+</div>
+</div>
+
+<!-- أزرار الحلقات -->
 <div id="episodesBtns"></div>
 
+<!-- إعلان أسفل الصفحة -->
 <div class="ad">
+<div id="frame-footer" style="width: 300px; margin: auto; height: auto;">
+  <iframe data-aa='2425792' src='//ad.a-ads.com/2425792/?size=300x250'
+          style='border:0; padding:0; width:300px; height:250px; overflow:hidden; display:block; margin:auto;'>
+  </iframe>
+</div>
 📢 تابعنا على تلجرام:
 <a href="https://t.me/meselslattrg" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" style="width:18px;height:18px;">
@@ -158,76 +186,73 @@ iframe{
 </a>
 </div>
 
-<div class="ad">📢 مكان إعلان أسفل</div>
-</div>
-
 </div>
 
 <script>
-const seriesData=[
-{
-title:"مسلسل ورود وذنوب",
-desc:"تفاصيل التصنيف: مسلسل تركي حديث يصنف ضمن فئة الدراما الاجتماعية رومانسية",
-poster:"https://i.postimg.cc/SKgygjLQ/image-5.jpg",
-episodes:["4OcTqqn08cs","jKd5P8taHD8","FT2I_hgNt-k","p0BAUqgZ4VU","UX3t0S0Y7VA","iBJs1mImsI8","fGNchSeVOQc"]
-},
-
+const seriesData = [
+  {
+    title: "مسلسل ورود وذنوب",
+    desc: "تفاصيل التصنيف: مسلسل تركي حديث يصنف ضمن فئة الدراما الاجتماعية رومانسية",
+    poster: "https://i.postimg.cc/SKgygjLQ/image-5.jpg",
+    episodes: ["4OcTqqn08cs","jKd5P8taHD8","FT2I_hgNt-k","p0BAUqgZ4VU","UX3t0S0Y7VA","iBJs1mImsI8","fGNchSeVOQc"]
+  }
 ];
 
-const list=document.getElementById("seriesList");
-const home=document.getElementById("home");
-const page=document.getElementById("seriesPage");
-let current=0;
+const list = document.getElementById("seriesList");
+const home = document.getElementById("home");
+const page = document.getElementById("seriesPage");
+let current = 0;
 
-function renderSeries(arr){
-list.innerHTML="";
-arr.forEach(s=>{
-const i=seriesData.indexOf(s);
-list.innerHTML+=`<div class="card" onclick="openSeries(${i})"><img src="${s.poster}"><h3>${s.title}</h3></div>`;
-});
+function renderSeries(arr) {
+  list.innerHTML = "";
+  arr.forEach(s => {
+    const i = seriesData.indexOf(s);
+    list.innerHTML += `<div class="card" onclick="openSeries(${i})"><img src="${s.poster}"><h3>${s.title}</h3></div>`;
+  });
 }
 renderSeries(seriesData);
 
-function openSeries(i){
-current=i;
-home.classList.add("hidden");
-page.classList.remove("hidden");
-seriesTitle.innerText=seriesData[i].title;
-seriesDesc.innerText=seriesData[i].desc;
-buildEpisodes();
-loadEp(0);
+function openSeries(i) {
+  current = i;
+  home.classList.add("hidden");
+  page.classList.remove("hidden");
+  seriesTitle.innerText = seriesData[i].title;
+  seriesDesc.innerText = seriesData[i].desc;
+  buildEpisodes();
+  loadEp(0);
 }
 
-function buildEpisodes(){
-episodesBtns.innerHTML="";
-seriesData[current].episodes.forEach((_,i)=>{
-episodesBtns.innerHTML+=`<a href="?series=${current}&ep=${i}"><button class="btn">الحلقة ${i+1}</button></a>`;
-});
+function buildEpisodes() {
+  episodesBtns.innerHTML = "";
+  seriesData[current].episodes.forEach((_, i) => {
+    episodesBtns.innerHTML += `<a href="?series=${current}&ep=${i}"><button class="btn">الحلقة ${i+1}</button></a>`;
+  });
 }
 
-function loadEp(i){
-videoFrame.src="https://www.youtube.com/embed/"+seriesData[current].episodes[i];
-overlay.style.display="flex";
-}
-function closeAd(){overlay.style.display="none";}
-function goHome(){page.classList.add("hidden");home.classList.remove("hidden");}
-function searchSeries(){
-const q=searchInput.value.toLowerCase();
-renderSeries(seriesData.filter(s=>s.title.toLowerCase().includes(q)));
+function loadEp(i) {
+  videoFrame.src = "https://www.youtube.com/embed/" + seriesData[current].episodes[i];
+  overlay.style.display = "flex";
 }
 
-/* ✅ تحميل الحلقة بعد إعادة التحميل */
-const params=new URLSearchParams(window.location.search);
-const s=params.get("series");
-const e=params.get("ep");
-if(s!==null){
-current=parseInt(s);
-home.classList.add("hidden");
-page.classList.remove("hidden");
-seriesTitle.innerText=seriesData[current].title;
-seriesDesc.innerText=seriesData[current].desc;
-buildEpisodes();
-loadEp(e?parseInt(e):0);
+function closeAd() { overlay.style.display = "none"; }
+function goHome() { page.classList.add("hidden"); home.classList.remove("hidden"); }
+function searchSeries() {
+  const q = searchInput.value.toLowerCase();
+  renderSeries(seriesData.filter(s => s.title.toLowerCase().includes(q)));
+}
+
+// تحميل الحلقة مباشرة بعد إعادة التحميل
+const params = new URLSearchParams(window.location.search);
+const s = params.get("series");
+const e = params.get("ep");
+if (s !== null) {
+  current = parseInt(s);
+  home.classList.add("hidden");
+  page.classList.remove("hidden");
+  seriesTitle.innerText = seriesData[current].title;
+  seriesDesc.innerText = seriesData[current].desc;
+  buildEpisodes();
+  loadEp(e ? parseInt(e) : 0);
 }
 </script>
 
