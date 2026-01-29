@@ -77,13 +77,17 @@ iframe {
   height: 420px;
   border-radius: 10px;
 }
-.ad {
-  background: #333;
-  padding: 15px 0;
-  margin: 15px 0;
-  border-radius: 8px;
-  text-align: center;
+
+/* ✅ تعديل الإعلان (حل مشكلة مخفي جزئياً) */
+.ad{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px 0;
+  background:transparent;
 }
+
 .video-box {
   position: relative;
 }
@@ -145,8 +149,11 @@ iframe {
 
 <!-- إعلان فوق الفيديو -->
 <div class="ad">
-  <iframe data-aa='2425794' src='//ad.a-ads.com/2425794/?size=300x250'
-          style='border:0; width:300px; height:250px; display:inline-block;'>
+  <iframe
+    data-aa="2425794"
+    src="//ad.a-ads.com/2425794/?size=300x250"
+    style="border:0;width:300px;height:250px;max-width:100%;display:block;"
+    loading="lazy">
   </iframe>
 </div>
 
@@ -158,23 +165,17 @@ iframe {
 </div>
 </div>
 
-<!-- أزرار الحلقات -->
+<!-- أزرار الحلقات (لم يتم لمسها) -->
 <div id="episodesBtns"></div>
 
 <!-- إعلان تحت الحلقات -->
 <div class="ad">
-  <iframe data-aa='2425794' src='//ad.a-ads.com/2425794/?size=300x250'
-          style='border:0; width:300px; height:250px; display:inline-block;'>
+  <iframe
+    data-aa="2425794"
+    src="//ad.a-ads.com/2425794/?size=300x250"
+    style="border:0;width:300px;height:250px;max-width:100%;display:block;"
+    loading="lazy">
   </iframe>
-</div>
-
-<!-- إعلان أسفل الصفحة (اختياري) -->
-<div class="ad">
-📢 تابعنا على تلجرام:
-<a href="https://t.me/meselslattrg" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" style="width:18px;height:18px;">
-انقر هنا
-</a>
 </div>
 
 </div>
@@ -185,7 +186,7 @@ const seriesData = [
     title: "مسلسل ورود وذنوب",
     desc: "تفاصيل التصنيف: مسلسل تركي حديث يصنف ضمن فئة الدراما الاجتماعية رومانسية",
     poster: "https://i.postimg.cc/SKgygjLQ/image-5.jpg",
-    episodes: ["4OcTqqn08cs","jKd5P8taHD8","FT2I_hgNt-k","p0BAUqgZ4VU","UX3t0S0Y7VA","iBJs1mImsI8","fGNchSeVOQc"]
+    episodes: ["4OcTqqn08cs","jKd5P8taHD8","FT2I_hgNt-k","p0BAUqgZ4VU","UX3t0S0Y7VA","iBJs1mImsI8","fGNchSeVOQc","F93H6c56GcE","0b3oT3pD_p8"]
   }
 ];
 
@@ -216,7 +217,7 @@ function openSeries(i) {
 function buildEpisodes() {
   episodesBtns.innerHTML = "";
   seriesData[current].episodes.forEach((_, i) => {
-    episodesBtns.innerHTML += `<a href="?series=${current}&ep=${i}"><button class="btn">الحلقة ${i+1}</button></a>`;
+    episodesBtns.innerHTML += `<button class="btn" onclick="loadEp(${i})">الحلقة ${i+1}</button>`;
   });
 }
 
@@ -230,20 +231,6 @@ function goHome() { page.classList.add("hidden"); home.classList.remove("hidden"
 function searchSeries() {
   const q = searchInput.value.toLowerCase();
   renderSeries(seriesData.filter(s => s.title.toLowerCase().includes(q)));
-}
-
-// تحميل الحلقة مباشرة بعد إعادة التحميل
-const params = new URLSearchParams(window.location.search);
-const s = params.get("series");
-const e = params.get("ep");
-if(s !== null){
-  current = parseInt(s);
-  home.classList.add("hidden");
-  page.classList.remove("hidden");
-  seriesTitle.innerText = seriesData[current].title;
-  seriesDesc.innerText = seriesData[current].desc;
-  buildEpisodes();
-  loadEp(e ? parseInt(e) : 0);
 }
 </script>
 
