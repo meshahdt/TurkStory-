@@ -78,14 +78,14 @@ iframe {
   border-radius: 10px;
 }
 
-/* ✅ تعديل الإعلان (حل مشكلة مخفي جزئياً) */
+/* حاوية الإعلانات – تمنع مشكلة مخفي جزئياً */
 .ad{
   width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:20px 0;
-  background:transparent;
+  margin:25px 0;
+  overflow: visible;
 }
 
 .video-box {
@@ -147,7 +147,7 @@ iframe {
 <h2 id="seriesTitle"></h2>
 <p id="seriesDesc"></p>
 
-<!-- إعلان فوق الفيديو -->
+<!-- إعلان فوق الفيديو (قديم – لم يتغير) -->
 <div class="ad">
   <iframe
     data-aa="2425794"
@@ -159,21 +159,21 @@ iframe {
 
 <!-- الفيديو -->
 <div class="video-box">
-<iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-<div id="overlay">
-<button class="btn" onclick="closeAd()">شاهد الحلقة الآن</button>
-</div>
+  <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+  <div id="overlay">
+    <button class="btn" onclick="closeAd()">شاهد الحلقة الآن</button>
+  </div>
 </div>
 
 <!-- أزرار الحلقات (لم يتم لمسها) -->
 <div id="episodesBtns"></div>
 
-<!-- إعلان تحت الحلقات -->
+<!-- إعلان تحت الحلقات (جديد 728x90) -->
 <div class="ad">
   <iframe
-    data-aa="2425794"
-    src="//ad.a-ads.com/2425794/?size=300x250"
-    style="border:0;width:300px;height:250px;max-width:100%;display:block;"
+    data-aa="2425951"
+    src="//ad.a-ads.com/2425951/?size=728x90"
+    style="border:0;width:728px;height:90px;max-width:100%;display:block;"
     loading="lazy">
   </iframe>
 </div>
